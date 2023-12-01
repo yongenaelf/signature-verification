@@ -1,4 +1,4 @@
-import { verify } from "./verify";
+import { recoverAddress } from "./recover-address";
 import { expect, test } from "vitest";
 
 test("verify that the address owner signed the message", () => {
@@ -8,5 +8,5 @@ test("verify that the address owner signed the message", () => {
   const signed =
     "rQhXADrbh9B7RybjEbpENOpS4afxgyPB/tVXQykQSc0jhoYt63SNM1iyP+54lHBl8KZ0gUoIhj17P+4BpvRinwE=";
 
-  expect(verify(message, signed)).toBe(address);
+  expect(recoverAddress(message, signed)).toBe(address);
 });

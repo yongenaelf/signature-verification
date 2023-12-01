@@ -2,7 +2,7 @@ const secp256k1 = require("secp256k1");
 const { wallet } = require("aelf-sdk");
 const { getAddressFromPubKey } = wallet;
 
-export function verify(message: string, signed: string) {
+export function recoverAddress(message: string, signed: string) {
   const messageHashBuffer = Buffer.from(message, "hex");
   const signedBuffer = Buffer.from(signed, "base64");
   const signatureBuffer = signedBuffer.slice(0, 64);
